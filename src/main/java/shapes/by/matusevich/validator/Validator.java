@@ -72,7 +72,7 @@ public class Validator {
                 triangle.setId(Long.parseLong(splitLine[ID_POSITION]));
 
                 point.setX(Double.parseDouble(splitLine[1]));
-                point.setY(Double.parseDouble(splitLine[2]));
+                point.setY(Double.parseDouble(splitLine[2])); 
                 triangle.setPoint1(point);
 
                 point.setX(Double.parseDouble(splitLine[3]));
