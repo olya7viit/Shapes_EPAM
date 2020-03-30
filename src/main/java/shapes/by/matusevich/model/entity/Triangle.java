@@ -1,8 +1,7 @@
 package shapes.by.matusevich.model.entity;
 
-import java.util.Objects;
 
-public class Triangle {
+public class Triangle implements Cloneable{
 
     private Long id;
 
@@ -35,24 +34,26 @@ public class Triangle {
         return point1;
     }
 
-    public void setPoint1(Point point1) {
-        this.point1 = point1;
+    public void setPoint1(Point point1) throws CloneNotSupportedException {
+        this.point1 = point1.clone();
     }
 
-    public Point getPoint2() {
-        return point2;
-    }
+    public Point getPoint2() {  return point2;}
 
-    public void setPoint2(Point point2) {
-        this.point2 = point2;
+    public void setPoint2(Point point2) throws CloneNotSupportedException {
+        this.point2 = point2.clone();
     }
 
     public Point getPoint3() {
         return point3;
     }
 
-    public void setPoint3(Point point3) {
-        this.point3 = point3;
+    public void setPoint3(Point point3) throws CloneNotSupportedException {
+        this.point3 = point3.clone();
+    }
+
+    public Triangle clone() throws CloneNotSupportedException{
+        return (Triangle) super.clone();
     }
 
     @Override

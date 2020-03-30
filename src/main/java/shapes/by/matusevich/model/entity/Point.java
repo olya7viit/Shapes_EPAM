@@ -1,8 +1,6 @@
 package shapes.by.matusevich.model.entity;
 
-import java.util.Objects;
-
-public class Point {
+public class Point implements Cloneable{
 
     private double x;
 
@@ -24,6 +22,10 @@ public class Point {
 
     public void setY(double y) {
         this.y = y;
+    }
+
+    public Point clone() throws CloneNotSupportedException{
+        return (Point) super.clone();
     }
 
     @Override

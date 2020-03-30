@@ -12,6 +12,8 @@ public class Validator {
     private static final String PARAM_DELIMITER = " ";
     private static final int COUNT_ELEMENT = 7;
     private static final int ID_POSITION = 0;
+    private static final String REGEX_NUMBER = "^[0-9]+$";
+    private static final String REGEX_DOUBLE_NUMBER = "^[0-9]*[.,]?[0-9]+$";
 
     public static boolean isTriangle(Point point1, Point point2, Point point3) {
         double a, b, c;
@@ -43,7 +45,7 @@ public class Validator {
         return result;
     }
 
-    public static List<Triangle> checkTriangleFromFile(List<Triangle> triangles, String str) {
+    public static List<Triangle> checkTriangleFromFile(List<Triangle> triangles, String str) throws CloneNotSupportedException {
         boolean flag = true;
         String[] splitLine;
         splitLine = str.split(PARAM_DELIMITER);
@@ -72,7 +74,7 @@ public class Validator {
                 triangle.setId(Long.parseLong(splitLine[ID_POSITION]));
 
                 point.setX(Double.parseDouble(splitLine[1]));
-                point.setY(Double.parseDouble(splitLine[2])); 
+                point.setY(Double.parseDouble(splitLine[2]));
                 triangle.setPoint1(point);
 
                 point.setX(Double.parseDouble(splitLine[3]));
@@ -82,8 +84,8 @@ public class Validator {
                 point.setX(Double.parseDouble(splitLine[5]));
                 point.setY(Double.parseDouble(splitLine[6]));
                 triangle.setPoint3(point);
-
-                triangles.add(triangle);
+                
+                triangles.add(triangle.clone());
             }
         }
 
@@ -92,23 +94,10 @@ public class Validator {
     }
 
     public static boolean isDouble(String value) {
-        if ((double)Double.parseDouble(value) == Double.parseDouble(value)) {
-            return true;
-        }
-        return false;
-    }
-
-    public static boolean isInteger(String value) {
-        if ((int)Integer.parseInt(value) == Integer.parseInt(value)) {
-            return true;
-        }
-        return false;
+        return value.matches(REGEX_DOUBLE_NUMBER);
     }
 
     public static boolean isLong(String value) {
-        if ((long)Long.parseLong(value) == Long.parseLong(value)) {
-            return true;
-        }
-        return false;
+        return value.matches(REGEX_NUMBER);
     }
 }

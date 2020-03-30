@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Test1 {
     @Test
-    public void testReed() throws IOException {
+    public void testReed() throws IOException, CloneNotSupportedException {
         List<Triangle> triangles;
         TriangleDao triangleDao = new FileTriangleDao();
 

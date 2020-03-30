@@ -13,7 +13,7 @@ public class FileTriangleDao implements TriangleDao {
     private static final String FILE_NAME = "C:\\Users\\User\\IdeaProjects\\Shapes_EPAM\\src\\main\\resources\\file.txt";
 
     @Override
-    public List<Triangle> reed() throws IOException {
+    public List<Triangle> reed() throws IOException, CloneNotSupportedException {
 
         List<Triangle> triangles = new ArrayList();
 

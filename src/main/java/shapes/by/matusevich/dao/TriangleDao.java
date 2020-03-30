@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface TriangleDao {
 
-    List<Triangle> reed() throws IOException;
+    List<Triangle> reed() throws IOException, CloneNotSupportedException;
 }
