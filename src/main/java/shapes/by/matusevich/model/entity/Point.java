@@ -1,12 +1,17 @@
 package shapes.by.matusevich.model.entity;
 
-public class Point implements Cloneable{
+public class Point{
 
     private double x;
 
     private double y;
 
     public Point(){}
+
+    public Point(double x, double y){
+        this.x = x;
+        this.y = y;
+    }
 
     public double getX() {
         return x;
@@ -24,8 +29,20 @@ public class Point implements Cloneable{
         this.y = y;
     }
 
-    public Point clone() throws CloneNotSupportedException{
-        return (Point) super.clone();
+    @Override
+    public boolean equals(Object obj){
+        if(obj == this){
+            return true;
+        }
+        if(obj == null){
+            return false;
+        }
+        if ((obj.getClass() != this.getClass())){
+            return false;
+        }
+        Point point = (Point)obj;
+
+        return x == point.x && y == point.y;
     }
 
     @Override

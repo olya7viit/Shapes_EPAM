@@ -1,34 +1,45 @@
 package shapes.by.matusevich.dao.impl;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import shapes.by.matusevich.dao.DaoException;
 import shapes.by.matusevich.dao.TriangleDao;
-import shapes.by.matusevich.model.entity.Triangle;
-import shapes.by.matusevich.validator.Validator;
 
-import java.io.*;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 public class FileTriangleDao implements TriangleDao {
+
+    static Logger logger = LogManager.getLogger();
 
     private static final String FILE_NAME = "C:\\Users\\User\\IdeaProjects\\Shapes_EPAM\\src\\main\\resources\\file.txt";
 
     @Override
-    public List<Triangle> reed() throws IOException, CloneNotSupportedException {
+    public List<String> reed(String fileName) throws DaoException {
 
-        List<Triangle> triangles = new ArrayList();
+        List<String> lines;
 
-        File file = new File(FILE_NAME);
+        try {
+            lines = Files.readAllLines(Paths.get(fileName), UTF_8);
 
-        FileReader fr = new FileReader(file);
+            if(lines.isEmpty()){
+                logger.log(Level.ERROR, new StringBuilder().append("FILE ").append(fileName).append(" IS EMPTY").toString());
+                throw new DaoException();
+            }
 
-        BufferedReader reader = new BufferedReader(fr);
+            logger.log(Level.INFO, "READING THE FILE SUCCESSFULLY: " + fileName);
 
-        String line = reader.readLine();
-        while (line != null) {
-            Validator.checkTriangleFromFile(triangles, line);
-            line = reader.readLine();
+        } catch (IOException e) {
+            logger.log(Level.FATAL, new StringBuilder().append("FILE ").append(fileName).append(" DOES NOT EXIST").toString());
+            throw new DaoException("Errors during reading", e);
         }
 
-        return triangles;
+        return lines;
     }
+
 }
