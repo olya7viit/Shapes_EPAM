@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface TriangleParser {
 
-    List pars(List<String> list);
+    List pars(List<String> list) throws ParserException;
 }

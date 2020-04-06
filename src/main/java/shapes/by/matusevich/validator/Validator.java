@@ -1,5 +1,6 @@
 package shapes.by.matusevich.validator;
 
+import shapes.by.matusevich.model.entity.EntityException;
 import shapes.by.matusevich.model.entity.Point;
 import shapes.by.matusevich.model.entity.Triangle;
 import shapes.by.matusevich.model.service.impl.TriangleServiceImpl;
@@ -18,6 +19,11 @@ public class Validator {
     private static final String PARAM_DELIMITER = " ";
 
     public boolean isTriangle(Point point1, Point point2, Point point3) {
+
+        if(point1 == null || point2 == null || point3 == null){
+            return false;
+        }
+
         double a, b, c;
 
         a = TriangleServiceImpl.calculateSide(point1, point2);
@@ -33,6 +39,11 @@ public class Validator {
     }
 
     public boolean isTriangle(Triangle triangle) {
+
+        if(triangle == null){
+           return false;
+        }
+
         double a, b, c;
 
         a = TriangleServiceImpl.calculateSide(triangle.getPoint1(), triangle.getPoint2());
@@ -48,14 +59,29 @@ public class Validator {
     }
 
     public boolean isDouble(String value) {
+
+        if(value == null){
+            return false;
+        }
+
         return value.matches(REGEX_DOUBLE_NUMBER);
     }
 
     public boolean isLong(String value) {
+
+        if(value == null){
+            return false;
+        }
+
         return value.matches(REGEX_NUMBER);
     }
 
     public boolean isCorrectData(String line, int countElement) {
+
+        if(line == null){
+            return false;
+        }
+
         boolean flag = false;
         String[] splitLine;
 

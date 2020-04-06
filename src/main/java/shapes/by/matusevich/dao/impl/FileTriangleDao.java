@@ -17,12 +17,16 @@ public class FileTriangleDao implements TriangleDao {
 
     static Logger logger = LogManager.getLogger();
 
-    private static final String FILE_NAME = "C:\\Users\\User\\IdeaProjects\\Shapes_EPAM\\src\\main\\resources\\file.txt";
+    private static final String FILE_NAME = "src/main/resources/file.txt";
 
     @Override
     public List<String> reed(String fileName) throws DaoException {
 
         List<String> lines;
+
+        if(fileName == null){
+            fileName = FILE_NAME;
+        }
 
         try {
             lines = Files.readAllLines(Paths.get(fileName), UTF_8);

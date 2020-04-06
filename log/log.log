@@ -1,0 +1,18 @@
+2020-04-05 20:43:28 [main] FATAL by.matusevich.dao.impl.FileTriangleDao - FILE src/main/resources/file1.txt DOES NOT EXIST
+2020-04-05 21:36:30 [main] FATAL by.matusevich.dao.impl.FileTriangleDao - FILE file.txt DOES NOT EXIST
+2020-04-05 21:37:22 [main] INFO  by.matusevich.dao.impl.FileTriangleDao - READING THE FILE SUCCESSFULLY: src/main/resources/file.txt
+2020-04-05 21:39:32 [main] FATAL by.matusevich.dao.impl.FileTriangleDao - FILE src/main/resources/file1.txt DOES NOT EXIST
+2020-04-05 21:40:32 [main] ERROR by.matusevich.dao.impl.FileTriangleDao - FILE src/main/resources/test_file.txt IS EMPTY
+2020-04-05 21:42:21 [main] FATAL by.matusevich.dao.impl.FileTriangleDao - FILE  DOES NOT EXIST
+2020-04-05 21:47:35 [main] INFO  by.matusevich.dao.impl.FileTriangleDao - READING THE FILE SUCCESSFULLY: src/main/resources/file.txt
+2020-04-05 21:48:28 [main] INFO  by.matusevich.dao.impl.FileTriangleDao - READING THE FILE SUCCESSFULLY: src/main/resources/file.txt
+2020-04-05 22:00:16 [main] ERROR by.matusevich.model.entity.Triangle - IT ISN'T TRIANGLE
+2020-04-05 22:08:29 [main] ERROR matusevich.model.service.impl.TriangleServiceImpl - IT ISN'T TRIANGLE
+2020-04-05 22:09:23 [main] ERROR matusevich.model.service.impl.TriangleServiceImpl - IT ISN'T TRIANGLE
+2020-04-05 22:14:55 [main] ERROR matusevich.model.service.impl.TriangleServiceImpl - IT ISN'T TRIANGLE
+2020-04-05 22:15:58 [main] ERROR by.matusevich.model.entity.Triangle - IT ISN'T TRIANGLE
+2020-04-05 22:16:15 [main] ERROR by.matusevich.model.entity.Triangle - IT ISN'T TRIANGLE
+2020-04-05 22:16:15 [main] ERROR matusevich.model.service.impl.TriangleServiceImpl - IT ISN'T TRIANGLE
+2020-04-05 22:16:15 [main] ERROR by.matusevich.model.entity.Triangle - IT ISN'T TRIANGLE
+2020-04-05 22:16:15 [main] ERROR matusevich.model.service.impl.TriangleServiceImpl - IT ISN'T TRIANGLE
+2020-04-06 08:40:53 [main] ERROR by.matusevich.parser.impl.TriangleParserImpl - THE VALUE IS NULL

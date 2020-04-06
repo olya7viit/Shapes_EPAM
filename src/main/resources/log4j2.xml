@@ -13,9 +13,19 @@
             <PatternLayout pattern="${pattern_console}"/>
         </Console>
 
-        <File name="File1" fileName="log/log.log" bufferedIO="true">
+        <File name="File1" fileName="src/main/resources/log.log" bufferedIO="true">
             <PatternLayout pattern="${pattern_file}"/>
         </File>
+
+        <RollingFile name="FileRolling" fileName="log/log.log" append="true"
+                     filePattern=
+                             "logs/${date:yyyy-MM-dd}/%d{yyyy-MM-dd_HH-mm}_%i.log">
+            <PatternLayout pattern="${pattern_file}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="15 KB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
 
     </Appenders>
 
