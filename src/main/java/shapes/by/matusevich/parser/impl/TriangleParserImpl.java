@@ -1,36 +1,30 @@
 package shapes.by.matusevich.parser.impl;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import shapes.by.matusevich.parser.ParserException;
+import shapes.by.matusevich.exception.ParserException;
 import shapes.by.matusevich.parser.TriangleParser;
-import shapes.by.matusevich.validator.Validator;
+import shapes.by.matusevich.validator.TriangleValidator;;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TriangleParserImpl implements TriangleParser {
-    static Logger logger = LogManager.getLogger();
-    private static final int COUNT_ELEMENT = 7;
+    private static final int COUNT_TRIANGLE_ELEMENTS = 6;
 
     @Override
-    public List pars(List<String> lines) throws ParserException {
-
-        if(lines == null){
-            logger.log(Level.ERROR, "THE VALUE IS NULL");
-            throw new ParserException("INCORRECT DATA");
+    public List parsTriangle(List<String> listTriangles) throws ParserException {
+        if (listTriangles == null) {
+            throw new ParserException("list is null");
         }
 
-        Validator validator = new Validator();
-        List correctData = new ArrayList();
+        TriangleValidator validator = new TriangleValidator();
+        List<String> correctDataTriangles = new ArrayList<>();
 
-        for (int i=0;i<lines.size();i++){
-            if(validator.isCorrectData(lines.get(i), COUNT_ELEMENT)){
-                correctData.add(lines.get(i));
+        for (String listTriangle : listTriangles) {
+            if (validator.isCorrectData(listTriangle, COUNT_TRIANGLE_ELEMENTS)) {
+                correctDataTriangles.add(listTriangle);
             }
         }
 
-        return correctData;
+        return correctDataTriangles;
     }
 }

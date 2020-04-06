@@ -1,5 +1,6 @@
 package shapes.by.matusevich.model.service;
 
+import shapes.by.matusevich.exception.ServiceException;
 import shapes.by.matusevich.model.entity.Triangle;
 
 public interface TriangleService {

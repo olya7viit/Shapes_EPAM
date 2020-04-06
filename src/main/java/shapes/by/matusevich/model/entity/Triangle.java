@@ -3,7 +3,8 @@ package shapes.by.matusevich.model.entity;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import shapes.by.matusevich.validator.Validator;
+import shapes.by.matusevich.exception.EntityException;
+import shapes.by.matusevich.validator.TriangleValidator;
 
 public class Triangle{
 
@@ -21,8 +22,8 @@ public class Triangle{
     public Triangle() {
     }
 
-    public Triangle(Long id, Point point1, Point point2, Point point3) throws EntityException{
-        Validator validator = new Validator();
+    public Triangle(Long id, Point point1, Point point2, Point point3) throws EntityException {
+        TriangleValidator validator = new TriangleValidator();
         if(!validator.isTriangle(point1,point2,point3)){
             logger.error("IT ISN'T TRIANGLE");
             throw new EntityException("INCORRECT VALUE");

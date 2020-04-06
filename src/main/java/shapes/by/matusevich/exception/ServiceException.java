@@ -1,4 +1,4 @@
-package shapes.by.matusevich.model.service;
+package shapes.by.matusevich.exception;
 
 public class ServiceException extends Exception {
 

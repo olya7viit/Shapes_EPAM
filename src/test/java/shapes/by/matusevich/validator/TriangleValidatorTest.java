@@ -1,27 +1,26 @@
-package shapes.by.matusevich.test;
+package shapes.by.matusevich.validator;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import shapes.by.matusevich.model.entity.EntityException;
+import shapes.by.matusevich.exception.EntityException;
 import shapes.by.matusevich.model.entity.Point;
 import shapes.by.matusevich.model.entity.Triangle;
-import shapes.by.matusevich.model.entity.TriangleFactory;
-import shapes.by.matusevich.validator.Validator;
 
-public class ValidatorTest {
+public class TriangleValidatorTest {
     private Point testPoint;
     private Triangle testTriangle;
-    private Validator validator;
+    private TriangleValidator validator;
 
     @BeforeClass
     public void initialisation() throws EntityException {
-        String[] data = {"1", "1", "1", "1", "5", "5", "1"};
-        testTriangle = TriangleFactory.getInstance().getTriangle(data);
+        testTriangle = new Triangle((long)1, new Point(1,1),
+                new Point(1,5),
+                new Point(5,1));
 
         testPoint = new Point(1,2);
 
-        validator = new Validator();
+        validator = new TriangleValidator();
     }
 
     @Test
@@ -59,15 +58,5 @@ public class ValidatorTest {
 
         Assert.assertTrue(result);
     }
-
-    @Test
-    public void isDoubleTest() {
-
-        boolean result;
-        result = validator.isDouble("12");
-
-        Assert.assertTrue(result);
-    }
-
 
 }

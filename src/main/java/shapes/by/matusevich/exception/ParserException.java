@@ -1,4 +1,4 @@
-package shapes.by.matusevich.parser;
+package shapes.by.matusevich.exception;
 
 public class ParserException extends Exception {
 

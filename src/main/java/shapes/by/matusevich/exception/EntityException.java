@@ -1,4 +1,4 @@
-package shapes.by.matusevich.model.entity;
+package shapes.by.matusevich.exception;
 
 public class EntityException extends Exception {
     private static final long serialVersionUID = 2l;

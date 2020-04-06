@@ -1,18 +1,15 @@
-package shapes.by.matusevich.test;
+package shapes.by.matusevich.model.service;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import shapes.by.matusevich.model.entity.EntityException;
+import shapes.by.matusevich.exception.EntityException;
+import shapes.by.matusevich.exception.ServiceException;
 import shapes.by.matusevich.model.entity.Point;
 import shapes.by.matusevich.model.entity.Triangle;
-import shapes.by.matusevich.model.entity.TriangleFactory;
-import shapes.by.matusevich.model.service.ServiceException;
-import shapes.by.matusevich.model.service.TriangleService;
 import shapes.by.matusevich.model.service.impl.TriangleServiceImpl;
 
 public class TriangleServiceImplTest {
-
     private Triangle testTriangle;
     private TriangleService triangleService;
 
@@ -21,8 +18,9 @@ public class TriangleServiceImplTest {
 
         triangleService = new TriangleServiceImpl();
 
-        String[] data = {"1", "1", "1", "1", "5", "5", "1"};
-        testTriangle = TriangleFactory.getInstance().getTriangle(data);
+        testTriangle = new Triangle((long)1, new Point(1,1),
+                new Point(1,5),
+                new Point(5,1));
     }
 
     @Test
