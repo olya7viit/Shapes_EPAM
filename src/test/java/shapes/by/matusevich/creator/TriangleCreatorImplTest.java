@@ -6,6 +6,8 @@ import org.testng.annotations.Test;
 import shapes.by.matusevich.creator.impl.TriangleCreatorImpl;
 import shapes.by.matusevich.exception.CreatorException;
 import shapes.by.matusevich.exception.EntityException;
+import shapes.by.matusevich.exception.ServiceException;
+import shapes.by.matusevich.exception.WareHouseException;
 import shapes.by.matusevich.model.entity.Point;
 import shapes.by.matusevich.model.entity.Triangle;
 
@@ -24,7 +26,7 @@ public class TriangleCreatorImplTest {
     }
 
     @Test
-    public void createTrianglesTest() throws CreatorException, EntityException {
+    public void createTrianglesTest() throws CreatorException, EntityException, ServiceException, WareHouseException {
         List<Triangle> triangles;
         triangles = triangleCreator.createTriangles(listTriangles);
 
@@ -35,7 +37,7 @@ public class TriangleCreatorImplTest {
     }
 
     @Test(expectedExceptions = CreatorException.class)
-    public void createTrianglesTestExceptionNull() throws CreatorException, EntityException {
+    public void createTrianglesTestExceptionNull() throws CreatorException, EntityException, ServiceException, WareHouseException {
         List<Triangle> triangles;
         triangles = triangleCreator.createTriangles(null);
     }

@@ -1,6 +1,8 @@
 package shapes.by.matusevich.model.entity;
 
 import shapes.by.matusevich.exception.EntityException;
+import shapes.by.matusevich.exception.ServiceException;
+import shapes.by.matusevich.exception.WareHouseException;
 import shapes.by.matusevich.model.generator.IdGenerator;
 
 public class TriangleFactory {
@@ -26,7 +28,7 @@ public class TriangleFactory {
         return new Triangle();
     }
 
-    public Triangle getTriangle(String lineTriangle) throws EntityException {
+    public Triangle getTriangle(String lineTriangle) throws EntityException, ServiceException, WareHouseException {
 
         double X, Y;
         String[] data = lineTriangle.split(REGEX_DELIMITER);

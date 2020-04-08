@@ -45,9 +45,19 @@ public class Point{
         return x == point.x && y == point.y;
     }
 
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = (int) (prime * result + x);
+        result = (int) (prime * result + y);
+        return result;
+    }
+
     @Override
     public String toString() {
-        return "Point{" +
+        return this.getClass() + "{" +
                 "x=" + x +
                 ", y=" + y +
                 '}';
