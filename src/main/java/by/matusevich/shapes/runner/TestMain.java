@@ -19,7 +19,7 @@ import by.matusevich.shapes.exception.*;
 import java.util.List;
 
 public class TestMain {
-    public static void main(String[] args) throws ReaderException, ParserException, CreatorException, EntityException, ServiceException, WareHouseException {
+    public static void main(String[] args) throws ReaderException, ParserException, EntityException, ServiceException, WareHouseException, CreatorException {
         TriangleReader triangleReader = new TriangleReaderImpl();
         List<String> triangleLines;
         triangleLines = triangleReader.reedAllData("src/main/resources/file.txt");
@@ -53,17 +53,17 @@ public class TestMain {
         System.out.println("area: " + wareHouse.getArea(1));
         System.out.println("perimeter: " + wareHouse.getPerimeter(1));
 
-        System.out.println("");
+        System.out.println();
         System.out.println("\nТреугольник id = 2: ");
         Specification idSpecification = new TriangleIdSpecification(2);
         System.out.println(triangleRepository.query(idSpecification));
 
-        System.out.println("");
+        System.out.println();
         System.out.println("\nТреугольники все точки которых находятся в первом квадранте: ");
         Specification firstQuadrantSpecification = new TriangleFirstQuadrantSpecification();
         List listTriangles = triangleRepository.query(firstQuadrantSpecification);
-        for (int i=0;i<listTriangles.size();i++){
-            System.out.println(listTriangles.get(i));
+        for (Object listTriangle : listTriangles) {
+            System.out.println(listTriangle);
         }
     }
 }
