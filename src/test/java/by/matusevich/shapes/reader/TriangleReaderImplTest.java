@@ -22,7 +22,7 @@ public class TriangleReaderImplTest {
     public void reedAllDataTest() throws ReaderException {
         List<String> expected = new ArrayList<>();
         expected.add("1 1 2 1 1 2");
-        expected.add("5 1 2 5 1 2");
+        expected.add("5 1 2 5 0 3");
         expected.add("3 1 4 1 1 2 3");
         expected.add("3w2 1 4 1 1 2 3");
         expected.add("3 1 4 1 1 2 3w");
